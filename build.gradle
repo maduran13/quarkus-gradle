@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:quarkus-camel-bom:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-openshift'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-core'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-jackson'
+    implementation 'io.quarkus:quarkus-container-image-openshift'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-aws2-eks'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-rest'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-direct'
+    implementation 'io.quarkus:quarkus-arc'
+    testImplementation 'io.quarkus:quarkus-junit5'
+}
+
+group 'co.com.bancolombia'
+version '1.0.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+quarkusBuild {
+    nativeArgs {
+        containerBuild = true 
+        builderImage = "quay.io/quarkus/ubi-quarkus-native-image:22.2-java11" 
+    }
+}
