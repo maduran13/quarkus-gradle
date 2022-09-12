@@ -14,12 +14,15 @@ dependencies {
     implementation 'io.quarkus:quarkus-openshift'
     implementation 'org.apache.camel.quarkus:camel-quarkus-core'
     implementation 'org.apache.camel.quarkus:camel-quarkus-jackson'
-    implementation 'io.quarkus:quarkus-container-image-openshift'
-    implementation 'org.apache.camel.quarkus:camel-quarkus-aws2-eks'
     implementation 'org.apache.camel.quarkus:camel-quarkus-rest'
     implementation 'org.apache.camel.quarkus:camel-quarkus-direct'
+    implementation 'org.apache.camel.quarkus:camel-quarkus-bean'
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.rest-assured:rest-assured:5.1.1'
+
 }
 
 group 'co.com.bancolombia'

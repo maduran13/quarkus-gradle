@@ -7,6 +7,8 @@ import java.util.Set;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 
+import javax.inject.Inject;
+
 /**
  * Camel route definitions.
  */
@@ -40,7 +42,10 @@ public class Routes extends RouteBuilder {
 
         rest("/legumes")
                 .get()
-                .to("direct:getLegumes");
+                .to("direct:getLegumes")
+                .post()
+                .type(Legume.class)
+                .to("direct:addLegume");
 
         from("direct:getFruits")
                 .setBody().constant(fruits);
@@ -48,8 +53,5 @@ public class Routes extends RouteBuilder {
         from("direct:addFruit")
                 .process().body(Fruit.class, fruits::add)
                 .setBody().constant(fruits);
-
-        from("direct:getLegumes")
-                .setBody().constant(legumes);
     }
 }
