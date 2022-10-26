@@ -39,6 +39,7 @@ sonarqube {
     property "sonar.projectKey", "maduran13_quarkus-gradle"
     property "sonar.organization", "maduran13"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.test.exclusions", "src/test/**/*.java"
   }
 }
 
