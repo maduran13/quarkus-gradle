@@ -47,6 +47,7 @@ You can then execute your native executable with: `./build/quarkus-gradle-1.0.0-
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
 
+Hello my Doggies.
 ## Related Guides
 
 - OpenShift ([guide](https://quarkus.io/guides/deploying-to-openshift)): Generate OpenShift resources from annotations
